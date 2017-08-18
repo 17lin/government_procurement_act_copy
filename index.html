@@ -8,13 +8,22 @@
         <meta property="og:description" content="以 106/08/07 產出的題庫為基礎，提供線上題庫練習">
         <meta property="og:type" content="website">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>				
+			$(document).ready(function(){
+				$("button").click(function(){
+					$("#hide").toggle();
+				});
+			});
+		</script>
         <style>
         input[type='radio'] { transform: scale(2); }
         </style>
     </head>
     <body>
-        <h1 style='margin-left:10px;' >你為什麼要逼我考之採購法線上題庫</h1>
-		<p style='margin-left:20px;'>孩子，老師叫你寫題目，結果你卻在寫程式...</br>快速連結:			
+        <h1 style='margin-left:10px;' >你為什麼要逼我考之採購法線上題庫</h1>		
+		<p style='margin-left:20px;'>孩子，老師叫你寫題目，結果你卻在寫程式...</br><button>快速連結:</button>	
+		<span id="hide" hidden=true>
 			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030057" target="_blank">母法</a>
 			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030058" target="_blank">細則</a>
 			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030083" target="_blank">監辦</a>
@@ -31,8 +40,8 @@
 			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030075" target="_blank">替代方案</a>
 			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030099" target="_blank">廠商資格</a>
 			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030067" target="_blank">中央未達</a>
-			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030103" target="_blank">評委</a>
-	    	<br/><a href="table.html" target="_blank">金額級距彙整表</a>
+			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030103" target="_blank">評委</a>	    	
+		</span></br>	<a href="table.html" target="_blank">金額級距彙整表</a>
 		</p>
         <div class="container">
             <div class="row">
