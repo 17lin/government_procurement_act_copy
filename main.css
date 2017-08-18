@@ -1,26 +1,31 @@
 input[type='radio'] { transform: scale(2); }
-		#panel,#panel_table, #flip_panel {
-			padding: 5px;
-			text-align: left;
-			background-color: #F0FFF0;
-			border: solid 1px #0088A8;
-		}
-		#panel,#panel_table {
-			/*由上至下，上面的style會被洗掉*/
-			text-align: center;
-			padding: 10px;
-			display: none;
-		}
-		#panel_table {
-			/*由上至下，上面的style會被洗掉*/
-			align:center;
-		}
-		.basic_text{
-			font-family:Microsoft JhengHei;
-		}
-		#font{
-			color:#003377;
-			text-shadow:3px 3px 3px #cccccc;
-			font-family:Microsoft JhengHei;
-			margin-left:10px
-		}		
+.basic_text{
+	font-family:Microsoft JhengHei;
+	background-color: #222222;
+	color:#FFFFFF;
+}
+#font{
+	/*text-shadow:3px 3px 3px #cccccc;*/
+	margin-left:10px
+}
+#panel,#panel_table, #flip_panel {
+	padding: 5px;
+	text-align: left;
+	background-color: #253730;
+	border: solid 1px #8FBC8F;
+	color:#FFFFFF;
+}
+#panel,#panel_table {
+	/*由上至下，上面的style會被洗掉*/
+	text-align: center;
+	padding: 10px;
+	display: none;
+}
+#panel a, #panel_tabl a,#flip_panel a{
+	color:#FFFFFF;
+	hover:#AFEEEE;
+}
+#panel_table {
+	/*由上至下，上面的style會被洗掉*/
+	align:center;
+}
