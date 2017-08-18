@@ -25,6 +25,9 @@ input[type='radio'] { transform: scale(2); }
 	color:#FFFFFF;
 	hover:#AFEEEE;
 }
+#final_a{
+	color:#AFEEEE;
+}
 #panel_table {
 	/*由上至下，上面的style會被洗掉*/
 	align:center;
