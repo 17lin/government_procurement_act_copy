@@ -12,10 +12,18 @@
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 		<script src="jscode.js"></script>
 		<link rel=stylesheet type="text/css" href="main.css">
+		<script>
+			var Bullshit = ['孩子，老師叫你寫題目，結果你卻在寫程式...','孩子，我看你骨骼精奇，是萬中無一的採購奇才，維護世界和平就靠你了，我這有本秘籍《採購彙編》，見你我有缘，就十塊賣给你了！','如果有酒，希望與你共飲。如果有刀，希望與你共同抗敵。如果有小抄，記得借我抄TAT。'];
+			function onloadwords(){
+				var min = 0 , max = Bullshit.length-1;
+				var rand = Math.round(Math.random()*(max-min)+min);
+				document.getElementById("bullshit").innerHTML = Bullshit[rand];
+			}
+		</script>
     </head>
-    <body class="basic_text">
+    <body class="basic_text" onload = "onloadwords();">
         <h1 id="font">你為什麼要逼我考之採購法線上題庫</h1>
-		<p style='margin-left:20px;'>孩子，老師叫你寫題目，結果你卻在寫程式...</br>
+		<p style='margin-left:20px;'><span id="bullshit">孩子，老師叫你寫題目，結果你卻在寫程式...</span></br>
 		<div id ="flip_panel">
 			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030057" target="_blank" style='margin-left:15px;'>母法</a>
 			<a href="http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030058" target="_blank" style='margin-left:15px;'>細則</a>
