@@ -1,4 +1,4 @@
-var currentIndex = 0, qa = [], total = 0;
+var currentIndex = 0, qa = [], total = 0,count = 0;
 function init() {
 	$('#qa-result').html('');
 	$('#qa-quiz').html(qa[currentIndex].quiz);
@@ -14,8 +14,9 @@ function init() {
 		} else {
 			$('#qa-result').html("答錯惹！答案是 -> " + qa[currentIndex].options[qa[currentIndex].answer]);
 		}
-	});
-	$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題');
+	});	
+	$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題' + '   本次練習共累計' + count + '題');
+	count++;
 }
 $(document).ready(function(){
 	$("#flip").click(function(){
