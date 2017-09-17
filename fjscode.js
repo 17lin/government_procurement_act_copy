@@ -1,4 +1,4 @@
-var currentIndex = 0, qa = [], total = 0,rand = 0;
+var currentIndex = 0, qa = [], total = 0;
 $(document).ready(function(){
 	$("#flip").click(function(){
 		$("#panel").slideToggle("fast");

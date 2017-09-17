@@ -40,6 +40,11 @@ $(document).ready(function(){
 		init();
 		return false;//止默認行為和阻止冒泡
 	});
+	$('.qa-rand').click(function() {
+            currentIndex = Math.floor(Math.random() * (total - 0 + 1)) + 0 ;
+            init();
+            return false;
+          });
 	$('.qa-next').click(function() {
 		currentIndex += 1;
 		if(currentIndex >= total) {
