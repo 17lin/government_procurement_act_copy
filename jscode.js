@@ -1,4 +1,4 @@
-var currentIndex = 0, qa = [], total = 0,count = 0;
+var currentIndex = 0, qa = [], total = 0,count = 0,qright = 0;
 function init() {
 	$('#qa-result').html('');
 	$('#qa-quiz').html(qa[currentIndex].quiz);
@@ -11,11 +11,20 @@ function init() {
 		var selected = $(this).val();					
 		if(selected == qa[currentIndex].answer) {
 			$('#qa-result').html("答對惹！");
+			qright++;
+			console.log(qright+' '+count);
 		} else {
 			$('#qa-result').html("答錯惹！答案是 -> " + qa[currentIndex].options[qa[currentIndex].answer]);
 		}
 	});	
-	$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題' + '   本次練習共累計' + count + '題');
+	if(count == 0){
+		$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題' + '，本次練習共累計' + count + '題');
+		qright = 0;
+	}else{
+		qansright = 100*(qright/count);
+		$('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題' + '，本次練習共累計' + count + '題，'+'答對'+qright+'題，答對率'+qansright.toFixed(1)+'%');
+		console.log(qright);
+	}	
 	count++;
 }
 $(document).ready(function(){
