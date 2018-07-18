@@ -58,6 +58,6 @@ $(document).ready(function(){
           $('input.qa-options').change(function() {
             $('.qa-next').trigger('click');
           });
-          $('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題'+ '   本次練習共累計' + count + '題');
+          $('div#qa-status').html('第 ' + (currentIndex + 1) + ' 題 / 共 ' + total + ' 題'+ '，本次練習共累計' + count + '題');
         }
 });			
