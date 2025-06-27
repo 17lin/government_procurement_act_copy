@@ -1,0 +1,111 @@
+{
+  "site": {
+    "title": "政府採購法114基礎班線上測驗",
+    "description": "以 114/06/26 產出的題庫為基礎，提供線上題庫練習",
+    "year": "114",
+    "author": "電子作業科 十七",
+    "dataSource": "114基礎班學員手冊教材題庫",
+    "license": "MIT",
+    "originalAuthor": "kiang",
+    "originalAuthorUrl": "https://www.facebook.com/k.olc.tw"
+  },
+  "motivationalTexts": [
+    "歐拉歐拉歐拉歐拉歐拉歐拉歐拉歐拉歐拉歐拉歐拉歐拉歐拉(意義不明)",
+    "無駄無駄無駄無駄無駄無駄無駄無駄無駄無駄(意義不明)",
+    "恩，這是沒念熟的味道",
+    "還沒看完就想考試，你的勇氣是跟梁靜茹借的嗎?",
+    "我看你骨骼精奇，是萬中無一的採購奇才，採購世界和平就靠你了",
+    "你知道嗎，當你看著這串廢文一分鐘的話，60秒就過去惹",
+    "我不辦採購，誰辦採購",
+    "佛曰:臨時才來抱我大腿的，只能吃佛山無影腳喔^__<",
+    "自從用了本系統，我每次採購法都考100分(並沒有",
+    "不知道答案的時候，那就選B吧(不要瞎掰好嗎",
+    "要謝的人太多了，不如就謝十七吧(?",
+    "我這麼可愛，為什麼我要辦採購?",
+    "節能減碳愛地球，紙本題庫很夭壽",
+    "世界上最大的謊言之一:長官說這個東西簡單弄就好",
+    "世界上最大的謊言之一:長官說我不會大改你放心",
+    "甚麼都漲就是薪水不漲"
+  ],
+  "links": {
+    "mainLaw": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030057",
+    "detailRules": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030058",
+    "subLaws": [
+      {
+        "name": "監辦",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030083"
+      },
+      {
+        "name": "外商",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030072"
+      },
+      {
+        "name": "委專",
+        "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030076"
+      },
+      {
+        "name": "委技",
+        "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030077"
+      },
+      {
+        "name": "委資",
+        "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030078"
+      },
+      {
+        "name": "最有利標評選",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030080"
+      },
+      {
+        "name": "統包",
+        "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030063"
+      },
+      {
+        "name": "共同投標",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030064"
+      },
+      {
+        "name": "公告及公報",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030065"
+      },
+      {
+        "name": "電子採購法",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030099"
+      },
+      {
+        "name": "招標期限標準",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030093"
+      },
+      {
+        "name": "押保辦法",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030079"
+      },
+      {
+        "name": "替代方案",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030075"
+      },
+      {
+        "name": "廠商資格",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030099"
+      },
+      {
+        "name": "中央未達",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030067"
+      },
+      {
+        "name": "評委",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030103"
+      },
+      {
+        "name": "廠資&特殊&巨額",
+        "url": "http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=A0030099"
+      },
+      {
+        "name": "沒有自己找",
+        "url": "http://law.moj.gov.tw/"
+      }
+    ]
+  },
+  "analytics": {
+    "googleAnalyticsId": "UA-144022504-1"
+  }
+}

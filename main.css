@@ -1,0 +1,458 @@
+/* 基礎變數設定 */
+:root {
+  --primary-color: #4CAF50; /* Muted green for primary actions */
+  --primary-hover: #388E3C; /* Darker muted green on hover */
+  --secondary-color: #607D8B; /* Muted secondary for less prominent elements */
+  --background-color: #263238; /* Darker, slightly blue-gray background */
+  --surface-color: #37474F; /* Slightly lighter surface for cards/panels */
+  --surface-hover: #455A64;
+  --text-primary: #ECEFF1; /* Light text on dark background */
+  --text-secondary: #CFD8DC; /* Muted text for less important info */
+  --accent-color: #8BC34A; /* Slightly desaturated accent green */
+  --success-color: #66BB6A; /* Green for success (already good) */
+  --error-color: #E53935; /* 更鮮明的紅色 for errors (Material Red 600) */
+  --border-color: #546E7A;
+  --border-radius: 0.6rem; /* Slightly larger border radius for softer look */
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly larger shadow for depth */
+  --transition: all 0.2s ease-in-out; /* Standard transition speed */
+}
+
+/* 基礎樣式 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* Added: Make all text bold by default */
+  font-weight: 700; /* Use 700 for a strong bold */
+}
+
+body {
+  font-family: 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.4; /* Adjusted: Increased line height for better readability, previously 1.0 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 主要容器 */
+.container {
+  max-width: 1200px; /* Set a reasonable max-width for large screens */
+  width: 95%; /* Make it responsive */
+  margin: 0.5rem auto; /* Adjusted: Reduced vertical margin, previously 0.8rem */
+  padding: 1rem 1.5rem; /* Adjusted: Reduced vertical padding, previously 1.5rem */
+  flex-grow: 1;
+}
+
+/* 標題 */
+.main-title {
+  color: var(--text-primary);
+  text-align: center; /* Center align title */
+  margin-bottom: 1rem; /* Adjusted: Reduced spacing below title, previously 1.5rem */
+  font-size: 3.8rem; /* Increased font size */
+  font-weight: 800; /* Adjusted: Explicitly make it even bolder if desired */
+  text-shadow: var(--shadow);
+  padding: 0 1rem; /* Add horizontal padding for smaller screens */
+}
+
+/* 勵志文字 */
+#motivational-text {
+  display: block;
+  text-align: center; /* Center align motivational text */
+  margin-bottom: 1rem; /* Adjusted: Reduced spacing below, previously 1.5rem */
+  font-size: 1.9rem; /* Increased font size */
+  color: var(--accent-color);
+  font-style: italic;
+  /* font-weight: 700; /* Inherits from * but can be explicitly set if lighter value was here */
+  padding: 0 1rem; /* Add horizontal padding for smaller screens */
+}
+
+/* 導航區域 */
+#navigation {
+  background: var(--surface-color);
+  padding: 0.8rem 1rem; /* Adjusted: Reduced vertical padding, previously 1rem */
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin: 0.5rem auto; /* Consistent reduced margin with container */
+  max-width: 1200px; /* Consistent max-width */
+  width: 95%; /* Consistent width */
+  text-align: center; /* Center align nav items by default */
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center align nav links */
+  gap: 0.8rem; /* Adjusted: Slightly reduced spacing between links, previously 1rem */
+  margin-bottom: 0.8rem; /* Adjusted: Reduced margin, previously 1rem */
+}
+
+.nav-link, .toggle-btn {
+  background: var(--primary-color);
+  color: var(--text-primary);
+  padding: 0.7rem 1.6rem; /* Adjusted: Reduced vertical padding for better button size, previously 0.9rem */
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  /* font-weight: 700; /* Inherits from * */
+  font-size: 1.5rem; /* Increased font size */
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-link:hover, .toggle-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px); /* Standard hover effect */
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+}
+
+/* 可摺疊面板 */
+.collapsible-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out; /* Slower transition for smoother open/close */
+  background: var(--surface-hover);
+  border-radius: var(--border-radius);
+  margin-top: 0.8rem; /* Adjusted: Reduced spacing above, previously 1rem */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.collapsible-panel.show {
+  max-height: 1500px; /* Increased max height to accommodate larger content like tables */
+  transition: max-height 0.5s ease-in; /* Slightly slower on open */
+}
+
+.panel-content {
+  padding: 0.8rem 1rem; /* Adjusted: Reduced vertical internal padding, previously 1rem */
+}
+
+.sub-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjusted min-width for better sizing */
+  gap: 0.8rem; /* Adjusted: Slightly reduced spacing, previously 1rem */
+}
+
+.sub-nav-link {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+  padding: 0.6rem 1.4rem; /* Adjusted: Reduced vertical padding, previously 0.8rem */
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-size: 1.4rem; /* Increased font size */
+  /* font-weight: 700; /* Inherits from * */
+  text-align: center;
+  transition: var(--transition);
+}
+
+.sub-nav-link:hover {
+  background: #78909C;
+  transform: translateY(-1px);
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 0.8rem; /* Adjusted: Reduced spacing above, previously 1rem */
+  border-radius: var(--border-radius); /* Rounded corners for table container */
+  box-shadow: var(--shadow); /* Shadow for table container */
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.8rem; /* Adjusted: Reduced spacing below table, previously 1rem */
+  font-size: 1.2rem; /* Adjusted: Base font size for table text (increased) */
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid var(--border-color);
+  padding: 0.7rem 1rem; /* Adjusted: Reduced vertical internal padding, previously 1rem */
+  text-align: left; /* Left align table text */
+  vertical-align: top;
+  font-size: 1.2rem; /* Adjusted: Font size for table headers and cells (increased) */
+}
+
+.table-container th {
+  background: var(--primary-color);
+  color: var(--text-primary);
+  /* font-weight: 700; /* Inherits from * but explicitly set to 700 as it was already 700 */
+  position: sticky; /* Make table headers sticky for better UX on scroll */
+  top: 0;
+  z-index: 1; /* Ensure headers are above content when scrolling */
+}
+
+.table-container td {
+  background: var(--surface-color);
+  color: var(--text-secondary);
+}
+
+.table-container tbody tr:nth-child(even) td {
+  background: rgba(var(--surface-color), 0.7);
+}
+
+.close-btn {
+  background: var(--error-color);
+  color: var(--text-primary);
+  padding: 0.7rem 1.4rem; /* Adjusted: Reduced vertical padding, previously 0.8rem */
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  margin: 1rem auto; /* Adjusted: Reduced vertical margin, previously 1.2rem */
+  display: block;
+  transition: var(--transition);
+  font-size: 1.4rem; /* Increased font size */
+  width: fit-content;
+}
+
+.close-btn:hover {
+  background: #D32F2F;
+  transform: translateY(-2px);
+}
+
+/* 問答區塊 - 確保寬度延展且邊距最小化 */
+#qa-quiz, #qa-answer, #qa-result, #qa-status {
+    width: 100%; /* Ensure these major blocks are fully extended */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Centering the col-md-8 section within #detail */
+#detail > div.col-md-8.col-sm-12.col-xs-12 {
+  margin: 0 auto; /* This centers the column */
+  float: none; /* Clear float if any from Bootstrap versions */
+}
+
+#qa-quiz {
+  background: var(--surface-color);
+  padding: 1.5rem 2rem; /* Adjusted: Reduced vertical padding, previously 2rem */
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem; /* Adjusted: Reduced spacing below, previously 1.2rem */
+  font-size: 2.5rem; /* Increased font size for readability */
+  /* font-weight: 700; /* Inherits from * but was 600 previously, now effectively 700 */
+  color: var(--text-primary);
+  text-align: left; /* Left align question text */
+}
+
+#qa-answer {
+  background: var(--surface-color);
+  padding: 1.5rem 2rem; /* Adjusted: Reduced vertical padding, previously 2rem */
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem; /* Adjusted: Reduced spacing below, previously 1.2rem */
+  font-size: 2rem; /* Increased font size */
+  color: var(--text-secondary);
+  text-align: left; /* Left align answer text */
+}
+
+#qa-answer label {
+  display: block;
+  margin-bottom: 0.8rem; /* Adjusted: Reduced spacing between options, previously 1rem */
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0.7rem 0.9rem; /* Adjusted: Reduced vertical internal padding, previously 0.9rem */
+  border-radius: var(--border-radius);
+  /* font-weight: 700; /* Inherits from * but was 500 previously, now effectively 700 */
+}
+
+#qa-answer label:hover {
+  background: var(--surface-hover);
+}
+
+#qa-answer input[type="radio"] {
+  margin-right: 1rem; /* Sufficient spacing */
+  transform: scale(2.2); /* Adjusted radio button size */
+  vertical-align: middle;
+}
+
+#qa-result {
+  text-align: center;
+  font-size: 3.5rem; /* Increased font size */
+  /* font-weight: 800; /* Already 800, so remains very bold */
+  margin-bottom: 1.2rem; /* Adjusted: Reduced spacing for result, previously 1.8rem */
+  color: var(--success-color);
+  text-shadow: 0 0 14px rgba(102, 187, 106, 0.8);
+}
+
+/* 答錯了的提示字體顏色 */
+#qa-result.error {
+  color: var(--error-color); /* 使用新的更鮮明的紅色 */
+  text-shadow: 0 0 16px rgba(229, 57, 53, 0.9); /* 更強烈的陰影效果 */
+}
+
+/* 控制按鈕組 */
+.btn-group-justified {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center; /* Center buttons within the group */
+  gap: 0.8rem; /* Adjusted: Reduced spacing, previously 1rem */
+  margin-bottom: 1rem; /* Adjusted: Reduced spacing below, previously 1.2rem */
+}
+
+.btn-group-justified .btn {
+  flex: 1 1 auto; /* Allow buttons to grow and shrink, and wrap */
+  background: var(--primary-color);
+  color: var(--text-primary);
+  padding: 0.8rem 1.8rem; /* Adjusted: Reduced vertical padding, previously 1rem */
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  /* font-weight: 700; /* Inherits from * but was 600 previously, now effectively 700 */
+  font-size: 1.6rem; /* Increased font size */
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.btn-group-justified .btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px); /* Standard hover effect */
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+}
+
+/* 狀態顯示 */
+#qa-status {
+  background: rgba(96, 125, 139, 0.2); /* Slightly more prominent background */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem; /* Adjusted: Reduced padding, previously 1.2rem */
+  text-align: center;
+  /* font-weight: 700; /* Inherits from * but was 500 previously, now effectively 700 */
+  color: var(--text-secondary);
+  font-size: 1.5rem; /* Increased font size */
+  margin-top: 1rem; /* Adjusted: Reduced top margin for separation, previously 1.2rem */
+}
+
+/* 頁腳 */
+#footer {
+  text-align: center; /* Center align footer */
+  padding: 1.2rem 1rem; /* Adjusted: Reduced padding, previously 1.8rem */
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  margin-top: 1.8rem; /* Adjusted: Reduced spacing above footer, previously 2.5rem */
+  font-size: 1.3rem; /* Adjusted: Slightly increased footer font size */
+}
+
+#footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.8rem 1rem; /* Adjusted: Reduced vertical padding, previously 1rem */
+    margin: 0.8rem auto; /* Adjusted: Reduced vertical margin, previously 1rem */
+    width: 98%; /* Slightly wider on small screens */
+  }
+
+  .main-title {
+    font-size: 3rem; /* Smaller on small screens, still larger */
+    margin-bottom: 0.8rem; /* Adjusted: Reduced margin, previously 1rem */
+  }
+
+  #motivational-text {
+    font-size: 1.6rem; /* Smaller on small screens, still larger */
+    margin-bottom: 0.8rem; /* Adjusted: Reduced margin, previously 1rem */
+  }
+
+  #navigation {
+    margin: 0.8rem auto; /* Adjusted: Reduced margin, previously 1rem */
+    padding: 0.6rem 0.8rem; /* Adjusted: Reduced vertical padding, previously 0.8rem */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack nav links vertically */
+    gap: 0.6rem; /* Adjusted: Reduced gap, previously 0.8rem */
+  }
+
+  .nav-link, .toggle-btn {
+    width: 100%; /* Full width buttons */
+    font-size: 1.4rem; /* Increased font size */
+    padding: 0.7rem 1.2rem; /* Adjusted: Reduced vertical padding, previously 0.8rem */
+  }
+
+  .btn-group-justified {
+    flex-direction: column; /* Stack quiz control buttons vertically */
+    gap: 0.6rem; /* Adjusted: Reduced gap, previously 0.8rem */
+  }
+
+  .btn-group-justified .btn {
+    font-size: 1.5rem; /* Increased font size */
+    padding: 0.7rem 1.4rem; /* Adjusted: Reduced vertical padding, previously 0.8rem */
+  }
+
+  .sub-nav-grid {
+    grid-template-columns: 1fr; /* Single column for sub-nav links */
+    gap: 0.6rem; /* Adjusted: Reduced gap, previously 0.8rem */
+  }
+
+  #qa-quiz {
+    font-size: 2rem; /* Smaller question font size, still larger */
+    padding: 1rem 1.5rem; /* Adjusted: Reduced vertical padding, previously 1.5rem */
+    margin-bottom: 0.8rem; /* Adjusted: Reduced margin, previously 1rem */
+  }
+
+  #qa-answer {
+    font-size: 1.7rem; /* Smaller answer font size, still larger */
+    padding: 1rem 1.5rem; /* Adjusted: Reduced vertical padding, previously 1.5rem */
+    margin-bottom: 0.8rem; /* Adjusted: Reduced margin, previously 1rem */
+  }
+
+  #qa-answer label {
+    padding: 0.6rem 0.7rem; /* Adjusted: Reduced vertical padding, previously 0.7rem */
+    margin-bottom: 0.6rem; /* Adjusted: Reduced margin, previously 0.8rem */
+  }
+
+  #qa-answer input[type="radio"] {
+    transform: scale(2); /* Slightly smaller radio buttons, still larger */
+    margin-right: 0.8rem;
+  }
+
+  #qa-result {
+    font-size: 3rem; /* Smaller result font size, still larger */
+    margin-bottom: 1rem; /* Adjusted: Reduced margin, previously 1.2rem */
+  }
+
+  #qa-status {
+    font-size: 1.3rem; /* Smaller status font size, still larger */
+    padding: 0.8rem; /* Adjusted: Reduced padding, previously 0.9rem */
+    margin-top: 0.8rem; /* Adjusted: Reduced margin, previously 1rem */
+  }
+
+  .table-container table {
+    font-size: 1.1rem; /* Adjusted: Increased table font size for mobile */
+  }
+
+  .table-container th,
+  .table-container td {
+    padding: 0.7rem 0.9rem; /* Adjusted: Reduced vertical padding for table cells on mobile, previously 0.9rem */
+    font-size: 1.1rem; /* Adjusted: Font size for table cells on mobile */
+  }
+
+  .close-btn {
+    font-size: 1.3rem; /* Increased font size */
+    padding: 0.6rem 1.2rem; /* Adjusted: Reduced vertical padding, previously 0.7rem */
+    margin-top: 0.8rem; /* Adjusted: Reduced margin, previously 1rem */
+  }
+
+  #footer {
+    padding: 1rem 0.8rem; /* Adjusted: Reduced vertical padding, previously 1.2rem */
+    font-size: 1.2rem; /* Adjusted: Increased footer font size for mobile */
+    margin-top: 1.5rem; /* Adjusted: Reduced margin, previously 2rem */
+  }
+}
+
+/* Custom radio button scale from original main.css - ensure it's still applied */
+input[type='radio'] {
+    vertical-align: middle;
+}
