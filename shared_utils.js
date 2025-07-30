@@ -6,9 +6,10 @@ class AppUtils {
     this.currentIndex = 0;
     this.qa = [];
     this.total = 0;
-    this.count = 0;
-    this.qright = 0; // Specific to normal mode, but can be a property
+    this.count = 0; // 已回答的題目數
+    this.qright = 0; // 答對的題目數
     this.mode = 'normal'; // To store the current mode
+    this.answeredCurrentQuestion = false; // 新增屬性：追蹤當前題目是否已回答
   }
 
   // 載入配置檔案
@@ -284,6 +285,9 @@ class AppUtils {
 
   // 普通模式的問答顯示邏輯
   displayNormalQuiz() {
+    // 重設當前題目為未回答狀態
+    this.answeredCurrentQuestion = false; 
+
     $('#qa-result').html('');
     $('#qa-quiz').html(this.qa[this.currentIndex].quiz);
     let answers = '';
@@ -292,17 +296,24 @@ class AppUtils {
     }
     $('#qa-answer').html(answers);
 
+    // 每次顯示新題目時，先更新狀態，顯示當前是第幾題
+    this.updateQuizStatus(); 
+
     $('input.qa-options').off('change').on('change', () => { // Use .off().on() to prevent multiple bindings
-      const selected = $('input.qa-options:checked').val(); // Get selected value from the current question
-      if (selected == this.qa[this.currentIndex].answer) {
-        $('#qa-result').html("答對惹！");
-        this.qright++;
-      } else {
-        $('#qa-result').html(`答錯惹！答案是 -> ${this.qa[this.currentIndex].options[this.qa[this.currentIndex].answer]}`);
+      // 只有在當前題目尚未回答時才進行計分和更新
+      if (!this.answeredCurrentQuestion) {
+        const selected = $('input.qa-options:checked').val(); // Get selected value from the current question
+        if (selected == this.qa[this.currentIndex].answer) {
+          $('#qa-result').html("答對惹！");
+          this.qright++;
+        } else {
+          $('#qa-result').html(`答錯惹！答案是 -> ${this.qa[this.currentIndex].options[this.qa[this.currentIndex].answer]}`);
+        }
+        this.count++; // 只有在回答後才增加已回答題目數
+        this.answeredCurrentQuestion = true; // 將當前題目標記為已回答
+        this.updateQuizStatus(); // 作答後更新狀態
       }
-      this.updateQuizStatus(); // Update status after answering
     });
-    this.updateQuizStatus(); // Initial status update
   }
 
   // 快速模式的問答顯示邏輯
@@ -319,26 +330,32 @@ class AppUtils {
     }
     $('#qa-answer').html(answers);
     
+    // 快速模式：每顯示一題，就增加已作答題目數
+    this.count++;
+    this.updateQuizStatus(); // 更新狀態，顯示已累計的題目數
+
     $('input.qa-options').off('change').on('change', () => { // Use .off().on() to prevent multiple bindings
+      // 快速模式下，選項選擇後直接跳下一題，不再進行額外計分判斷
       $('.qa-next').trigger('click'); // Automatically go to next question
     });
-    this.updateQuizStatus(); // Initial status update
   }
 
-  // 更新問答狀態
+  // 更新問答狀態 (純顯示邏輯)
   updateQuizStatus() {
+    let statusText = `第 ${this.currentIndex + 1} 題 / 共 ${this.total} 題`;
+
     if (this.mode === 'normal') {
-      if (this.count === 0) {
-        $('div#qa-status').html(`第 ${this.currentIndex + 1} 題 / 共 ${this.total} 題，本次練習共累計 ${this.count} 題`);
-        this.qright = 0; // Reset qright for a new session
-      } else {
+      if (this.count > 0) { // 只有在有回答題目時才顯示答對率
         const qansright = (this.qright / this.count) * 100;
-        $('div#qa-status').html(`第 ${this.currentIndex + 1} 題 / 共 ${this.total} 題，本次練習共累計 ${this.count} 題，答對 ${this.qright} 題，答對率 ${qansright.toFixed(1)}%`);
+        statusText += `，本次練習共累計 ${this.count} 題，答對 ${this.qright} 題，答對率 ${qansright.toFixed(1)}%`;
+      } else {
+        // 當還沒有回答任何題目時，只顯示目前的題目資訊
+        statusText += `，本次練習共累計 0 題`;
       }
     } else if (this.mode === 'fast') {
-      $('div#qa-status').html(`第 ${this.currentIndex + 1} 題 / 共 ${this.total} 題，本次練習共累計 ${this.count} 題`);
+      statusText += `，本次練習共累計 ${this.count} 題`;
     }
-    this.count++; // Increment count after status update for next question
+    $('div#qa-status').html(statusText);
   }
 
   // 設定問答導航按鈕事件
